@@ -20,6 +20,20 @@ A web-based multiplayer Texas Hold'em game built with Flask + Socket.IO — play
 
 ## 中文
 
+### 🎨 本次更新：深蓝主题与页面布局优化
+
+本次更新已合并到本仓库的 `main` 分支，主要调整页面视觉和信息布局，保留现有登录流程、游戏规则和下注操作。
+
+- **登录页**：新生成的德州扑克场景铺满背景，桌面端登录模块叠加在右侧，窄屏居中显示。页面固定在浏览器窗口高度内，不再上下滚动。
+- **小屏适配**：按可用高度压缩标题和模块间距；窗口高度低于 600px 时隐藏游戏特色与版本说明，优先完整展示昵称输入框和进入大厅按钮。
+- **大厅**：统一深蓝配色、按钮和房间卡片样式。
+- **牌桌空间**：移除左侧重复导航，将“游戏大厅”和“中文 / EN”移到顶部“添加机器人”所在按钮行，扩大牌桌展示宽度。
+- **手牌与角色**：手牌居中显示在自己的角色上方，角色卡片改为紧凑布局，并调整 2–9 人座位排列。
+- **操作提示**：玩家行动提示改为顶部文字，只保留最新一条并在 5 秒后消失，避免遮挡右侧牌型分析。
+- **信息区域**：隐藏冗长的游戏状态诊断区域，保留右侧牌型分析、操作记录和个人记录；桌面牌桌适配窗口高度，长记录在面板内滚动。
+
+已检查通知替换与自动消失、2–9 人座位展示，以及桌面和手机横竖屏登录页无溢出、登录按钮完整可见。本轮未重新验证端到端登录和完整多人对局。详细范围见[分支更新说明](docs/ui-redesign/branch-description.md)。
+
 ### ✨ 功能特性
 
 **游戏**
@@ -128,6 +142,19 @@ gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:8888 app:app
 ---
 
 ## English
+
+### 🎨 UI update: dark blue theme and layout improvements
+
+This update is included in this repository's `main` branch. It changes presentation and layout while retaining the existing login flow, poker rules and betting controls.
+
+- Full-bleed generated poker artwork behind the login form: right-aligned on desktop and centered on narrow screens. The login page fits the viewport without scrolling; windows below 600px in height hide feature and version notes to keep login controls visible.
+- Consistent dark blue styling for the lobby, buttons and room cards.
+- More table space: redundant left navigation removed; lobby and language controls moved into the top action row.
+- Hole cards centered above the player's compact seat card, with adjusted seating for 2–9 players.
+- Action notifications appear as inline text in the top row, showing the latest message for five seconds without covering hand analysis.
+- Diagnostic game state hidden; analysis, action logs and personal history retained on the right, with internal scrolling for long desktop records.
+
+Notification behavior, seating presentation and login layout at desktop and mobile viewport sizes were checked. End-to-end login and a full multiplayer game were not revalidated in this round. See the [branch update notes](docs/ui-redesign/branch-description.md) for scope and validation details.
 
 ### ✨ Features
 
